@@ -15,6 +15,18 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
+app.use(function(req, res, next) { // Ignore favicon.ico requests.
+
+  if (req.originalUrl && req.originalUrl.split("/").pop() === 'favicon.ico') {
+
+    return res.sendStatus(204);
+
+  }
+
+  return next();
+
+});
+
 // connect mongoose
 
 mongoose.connect("mongodb+srv://annabelleshq:zzzxshq971001@cluster0.jyonr.mongodb.net/todolistDB");
