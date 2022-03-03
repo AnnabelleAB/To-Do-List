@@ -28,8 +28,8 @@ app.use(function(req, res, next) { // Ignore favicon.ico requests.
 });
 
 // connect mongoose
+mongoose.connect("mongodb+srv://" + process.env.ATLAS_USER + ":" + process.env.ATLAS_PWD + "@cluster0.jyonr.mongodb.net/todolistDB");
 
-mongoose.connect("mongodb+srv://annabelleshq:zzzxshq971001@cluster0.jyonr.mongodb.net/todolistDB");
 
 //mongoose schema
 const itemSchema = {
